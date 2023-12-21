@@ -25,7 +25,7 @@ public class TestClass {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless" );
-        System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver(options);
 //        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WebDriverConfig.WAIT_2_SECONDS, TimeUnit.SECONDS);//Выставил ожидание для всех методов findElement с 2 секундами, использовал переменную из класса WebDriverConfig
