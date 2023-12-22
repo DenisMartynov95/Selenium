@@ -27,9 +27,8 @@ public class TestClass {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/Resource/webdriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
         driver = new ChromeDriver(options);
 //        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WebDriverConfig.WAIT_2_SECONDS, TimeUnit.SECONDS);//Выставил ожидание для всех методов findElement с 2 секундами, использовал переменную из класса WebDriverConfig
