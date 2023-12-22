@@ -3,6 +3,7 @@ import Config.WebDriverConfig;
 import Pages.MainPage;
 import Pages.SigninPage;
 import Pages.SignupPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.MatcherAssert;
@@ -28,7 +29,7 @@ public class TestClass {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/Resource/webdriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless" ); //
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
 //        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WebDriverConfig.WAIT_2_SECONDS, TimeUnit.SECONDS);//Выставил ожидание для всех методов findElement с 2 секундами, использовал переменную из класса WebDriverConfig
