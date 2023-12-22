@@ -27,12 +27,20 @@ public class TestClass {
 
     @Before
     public void setUp() {
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless" ); //
+        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless");
         driver = new ChromeDriver(options);
-//        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(WebDriverConfig.WAIT_2_SECONDS, TimeUnit.SECONDS);//Выставил ожидание для всех методов findElement с 2 секундами, использовал переменную из класса WebDriverConfig
     }
+
+//    @Before
+//    public void setUp() {
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless" );
+//        driver = new ChromeDriver(options);
+////        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(WebDriverConfig.WAIT_2_SECONDS, TimeUnit.SECONDS);//Выставил ожидание для всех методов findElement с 2 секундами, использовал переменную из класса WebDriverConfig
+//    }
 
     @Test
     @Step
